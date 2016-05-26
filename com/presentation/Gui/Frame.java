@@ -39,10 +39,12 @@ public class Frame extends JFrame implements ActionListener{
 
         this.setVisible(true);
 
-
-
     }
 
+
+    /**
+     * Init Graphical components
+     */
     private void initGui() {
 
         mainPanel = new JPanel();   // creating the main window panel
@@ -73,13 +75,18 @@ public class Frame extends JFrame implements ActionListener{
         this.setContentPane(mainPanel);
     }
 
-
-
+    /**
+     * Create and launch the game logic
+     */
     private void initGame() {
         game = new RandomNumber();
         game.initGame();
     }
 
+
+    /**
+     * Somebody clicked on the button
+     */
     private void tryButtonClicked() {
 
         String userInputString = userInput.getText();
@@ -109,9 +116,6 @@ public class Frame extends JFrame implements ActionListener{
 
 
     }
-
-
-
 
 
 
