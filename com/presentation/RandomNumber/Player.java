@@ -15,8 +15,13 @@ import java.util.List;
 public class Player {
 
 
+    /**
+     * Player's name
+     */
     private String name;
-    private List<Integer> scoreHistory;
+
+
+    // private List<Integer> scoreHistory;
 
     public Player(String name) {
         this.name = name;
@@ -30,24 +35,30 @@ public class Player {
         this.name = name;
     }
 
-    public List<Integer> getScoreHistory() {
+    {
+    /* public List<Integer> getScoreHistory() {
         return scoreHistory;
     }
 
     public void setScoreHistory(List<Integer> scoreHistory) {
         this.scoreHistory = scoreHistory;
     }
+    */
+    }
 
-
+    /**
+     * Ask directly to the user for the value he wants to try
+     * @return
+     */
     public int askUserInputFromConsole() {
 
         BufferedReader userInputReader = new BufferedReader(new InputStreamReader(System.in));
         String userInputString = "";
         int userInput = 0;
-        boolean correctUserInput;
+        boolean correctUserInput = false;
 
 
-        do {
+        while (!correctUserInput) {
 
             System.out.print("Select a number (1 - 100) : ");
 
@@ -70,8 +81,9 @@ public class Player {
                 correctUserInput = false;
             }
 
-        } while (!correctUserInput);
+        }
 
+        // returning the user input
         return userInput;
     }
 

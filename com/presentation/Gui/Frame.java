@@ -85,7 +85,7 @@ public class Frame extends JFrame implements ActionListener{
 
 
     /**
-     * Somebody clicked on the button
+     * Somebody clicked on the TryNumber button
      */
     private void tryButtonClicked() {
 

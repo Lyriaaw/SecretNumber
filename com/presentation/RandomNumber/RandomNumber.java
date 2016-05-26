@@ -69,6 +69,11 @@ public class RandomNumber {
     }
 
 
+    /**
+     * Must be user when the player wants to try a Number
+     * @param userNumber The Integer value of the userInput
+     * @return != messages depending on the hits
+     */
     public String tryForANumber(int userNumber) {
         score++;    // One try added to the score
 

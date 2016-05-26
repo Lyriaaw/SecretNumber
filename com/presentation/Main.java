@@ -27,7 +27,9 @@ public class Main {
     }
 
 
-
+    /**
+     * Launch and manage the game from the console
+     */
     public static void launchOnConsole() {
         RandomNumber game = new RandomNumber();
 
