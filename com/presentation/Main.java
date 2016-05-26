@@ -12,9 +12,9 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) {
 
-        // launchOnConsole();
+        launchOnConsole();
 
-        launchOnGui();
+        // launchOnGui();
 
     }
 
@@ -33,7 +33,8 @@ public class Main {
     public static void launchOnConsole() {
         RandomNumber game = new RandomNumber();
 
-        Player player = new Player("Player1");
+        Player player = new Player();
+        player.askUserForName();
 
         String gameResponse;
 
@@ -42,16 +43,20 @@ public class Main {
 
         while (!game.isFinished()) {
 
+            // Ask player for a number
             int userNumber = player.askUserInputFromConsole();
 
+            // try the number entered by the user
             gameResponse = game.tryForANumber(userNumber);
 
+            // Displaying game message
             System.out.println(gameResponse);
 
         }
 
-
+        System.out.println("Congratulations " + player.getName() + " !! ");
         System.out.println("You won with a score = " + game.getScore());
     }
+
 
 }

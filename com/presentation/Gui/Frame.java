@@ -54,14 +54,19 @@ public class Frame extends JFrame implements ActionListener{
         mainPanel.setLayout(verticalLayout);
 
         // Creating the Label with the text "GameInfo" and Horizontal Aligment : center
-        gameInfo = new JLabel("GameInfo", SwingConstants.CENTER);
+        gameInfo = new JLabel("(Less | More ...)", SwingConstants.CENTER);
+        gameInfo.setFont(new Font("Arial", Font.PLAIN, 40));
 
         userInput = new JTextField();
+        userInput.setFont(new Font("Arial", Font.PLAIN, 40));
+        userInput.setHorizontalAlignment(JTextField.CENTER);
+
 
         // Creating the button
         sendAnswer = new JButton("Try this number");
         sendAnswer.addActionListener(this);
         sendAnswer.setActionCommand("TRY_NUMBER");
+        sendAnswer.setFont(new Font("Arial", Font.PLAIN, 40));
 
 
 
