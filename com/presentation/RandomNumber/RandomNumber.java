@@ -74,7 +74,6 @@ public class RandomNumber {
 
         String response = "";   // preparing the game's response
 
-
         if (randomNumber < userNumber) {
             response = "Less";
         } else if (randomNumber > userNumber) {

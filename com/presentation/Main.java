@@ -1,6 +1,7 @@
 package com.presentation;
 
 import com.presentation.Gui.Frame;
+import com.presentation.RandomNumber.Player;
 import com.presentation.RandomNumber.RandomNumber;
 
 import java.io.BufferedReader;
@@ -11,9 +12,9 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) {
 
-        launchOnConsole();
+        // launchOnConsole();
 
-        // launchOnGui();
+        launchOnGui();
 
     }
 
@@ -30,49 +31,23 @@ public class Main {
     public static void launchOnConsole() {
         RandomNumber game = new RandomNumber();
 
+        Player player = new Player("Player1");
+
+        String gameResponse;
+
+
         game.initGame();
 
         while (!game.isFinished()) {
-            BufferedReader userInputReader = new BufferedReader(new InputStreamReader(System.in));
 
+            int userNumber = player.askUserInputFromConsole();
 
+            gameResponse = game.tryForANumber(userNumber);
 
-            String userInputString = "";
-            int userInput = 0;
-
-            boolean correctUserInput;
-            do {
-
-                System.out.print("Select a number (1 - 100) : ");
-
-                // Taking the user's input as a String
-                try {
-
-                    userInputString = userInputReader.readLine();
-
-                } catch (IOException e) {
-
-                    e.printStackTrace();
-
-                }
-
-                // Converting userInput as String to integer
-                try {
-
-                    userInput = Integer.parseInt(userInputString);
-                    correctUserInput = true;
-
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-
-                    correctUserInput = false;
-                }
-
-            } while (!correctUserInput);
-
-            System.out.println(game.tryForANumber(userInput));
+            System.out.println(gameResponse);
 
         }
+
 
         System.out.println("You won with a score = " + game.getScore());
     }

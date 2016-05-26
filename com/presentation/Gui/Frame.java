@@ -86,18 +86,26 @@ public class Frame extends JFrame implements ActionListener{
 
         if (userInputString.length() == 0) return;
 
-        int tryedNumber;
+        int triedNumber;
         try {
-            tryedNumber = Integer.parseInt(userInputString);
+            triedNumber = Integer.parseInt(userInputString);
         } catch (NumberFormatException e) {
             e.printStackTrace();
 
             return;
         }
 
-        String response = game.tryForANumber(tryedNumber);
 
-        gameInfo.setText(response);
+        String response = game.tryForANumber(triedNumber);
+
+        String displayedString;
+
+        if (response.equals("You Win")) {
+            displayedString = response + " (score : " + game.getScore() + " ) ";
+        } else {
+            displayedString = response;
+        }
+        gameInfo.setText(displayedString);
 
 
     }

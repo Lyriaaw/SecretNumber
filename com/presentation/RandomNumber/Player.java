@@ -1,5 +1,8 @@
 package com.presentation.RandomNumber;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +20,6 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
-
-        scoreHistory = new ArrayList<>();
     }
 
     public String getName() {
@@ -37,6 +38,42 @@ public class Player {
         this.scoreHistory = scoreHistory;
     }
 
+
+    public int askUserInputFromConsole() {
+
+        BufferedReader userInputReader = new BufferedReader(new InputStreamReader(System.in));
+        String userInputString = "";
+        int userInput = 0;
+        boolean correctUserInput;
+
+
+        do {
+
+            System.out.print("Select a number (1 - 100) : ");
+
+            // Taking the user's input as a String
+            try {
+                userInputString = userInputReader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+                break;
+            }
+
+            // Converting userInput as String to integer
+            try {
+
+                userInput = Integer.parseInt(userInputString);
+                correctUserInput = true;
+
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                correctUserInput = false;
+            }
+
+        } while (!correctUserInput);
+
+        return userInput;
+    }
 
 
 
