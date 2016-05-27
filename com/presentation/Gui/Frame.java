@@ -1,5 +1,6 @@
 package com.presentation.Gui;
 
+import com.presentation.RandomNumber.Player;
 import com.presentation.RandomNumber.RandomNumber;
 
 import javax.swing.*;
@@ -23,7 +24,7 @@ public class Frame extends JFrame implements ActionListener{
 
 
     RandomNumber game;
-
+    Player player;
 
     public Frame() throws HeadlessException {
 
@@ -55,10 +56,10 @@ public class Frame extends JFrame implements ActionListener{
 
         // Creating the Label with the text "GameInfo" and Horizontal Aligment : center
         gameInfo = new JLabel("(Less | More ...)", SwingConstants.CENTER);
-        gameInfo.setFont(new Font("Arial", Font.PLAIN, 40));
+        //gameInfo.setFont(new Font("Arial", Font.PLAIN, 40));
 
         userInput = new JTextField();
-        userInput.setFont(new Font("Arial", Font.PLAIN, 40));
+        // userInput.setFont(new Font("Arial", Font.PLAIN, 40));
         userInput.setHorizontalAlignment(JTextField.CENTER);
 
 
@@ -66,7 +67,7 @@ public class Frame extends JFrame implements ActionListener{
         sendAnswer = new JButton("Try this number");
         sendAnswer.addActionListener(this);
         sendAnswer.setActionCommand("TRY_NUMBER");
-        sendAnswer.setFont(new Font("Arial", Font.PLAIN, 40));
+        // sendAnswer.setFont(new Font("Arial", Font.PLAIN, 40));
 
 
 
@@ -86,6 +87,9 @@ public class Frame extends JFrame implements ActionListener{
     private void initGame() {
         game = new RandomNumber();
         game.initGame();
+
+        player = new Player();
+        player.askUserForName();
     }
 
 
@@ -113,7 +117,8 @@ public class Frame extends JFrame implements ActionListener{
         String displayedString;
 
         if (response.equals("You Win")) {
-            displayedString = response + " (score : " + game.getScore() + " ) ";
+            displayedString = "Congratulation " + player.getName() + " !! You won !" + " (score : " + game.getScore() + ")" + "\n";
+
         } else {
             displayedString = response;
         }
