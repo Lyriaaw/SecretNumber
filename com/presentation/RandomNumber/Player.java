@@ -3,6 +3,7 @@ package com.presentation.RandomNumber;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,10 @@ public class Player {
 
 
     // private List<Integer> scoreHistory;
+
+
+    public Player() {
+    }
 
     public Player(String name) {
         this.name = name;
@@ -48,7 +53,7 @@ public class Player {
 
     /**
      * Ask directly to the user for the value he wants to try
-     * @return
+     * @return the user input as an Integer
      */
     public int askUserInputFromConsole() {
 
@@ -72,10 +77,8 @@ public class Player {
 
             // Converting userInput as String to integer
             try {
-
                 userInput = Integer.parseInt(userInputString);
                 correctUserInput = true;
-
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 correctUserInput = false;
@@ -86,6 +89,33 @@ public class Player {
         // returning the user input
         return userInput;
     }
+
+
+    /**
+     * Ask the user for his name and define it as the player's name
+     */
+    public void askUserForName() {
+
+        String userName = "";
+
+        BufferedReader userInputReader = new BufferedReader(new InputStreamReader(System.in));
+
+        // Taking the user Input
+        try {
+            System.out.println("Enter your name : ");
+            userName = userInputReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+            userName = "IOError";
+        }
+
+        this.name = userName;
+
+    }
+
+
+
+
 
 
 
